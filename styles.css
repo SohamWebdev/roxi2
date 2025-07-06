@@ -1,0 +1,656 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto&display=swap');
+
+:root {
+    --primary: #1e1e2f;
+    --accent: #ff4c60;
+    --bg: #f7f7fa;
+    --text: #222;
+    --card-bg: #fff;
+    --shadow: 0 4px 24px rgba(30,30,47,0.08);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 5vw;
+    background: var(--primary);
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: var(--shadow);
+    animation: slideDown 1s cubic-bezier(.77,0,.18,1) forwards;
+}
+
+.logo {
+    font-size: 2rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 2rem;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+
+nav a:hover {
+    color: var(--accent);
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    background: linear-gradient(120deg, #ff4c60 0%, #1e1e2f 100%);
+    color: #fff;
+    text-align: center;
+    padding: 4rem 2rem 2rem 2rem;
+    animation: fadeInUp 1.2s cubic-bezier(.77,0,.18,1) forwards;
+}
+
+.hero h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.hero button {
+    background: #fff;
+    color: var(--accent);
+    border: none;
+    padding: 1rem 2.5rem;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+
+.hero button:hover {
+    background: var(--accent);
+    color: #fff;
+    transform: translateY(-3px) scale(1.05);
+}
+
+section {
+    padding: 4rem 5vw;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about, .contact {
+    background: var(--card-bg);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    margin-bottom: 2rem;
+}
+
+.about h2, .portfolio h2, .contact h2 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    padding: 1rem;
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.4s cubic-bezier(.77,0,.18,1), box-shadow 0.4s cubic-bezier(.77,0,.18,1);
+    animation: fadeInUp 1s cubic-bezier(.77,0,.18,1) forwards;
+}
+
+.card:hover {
+    transform: scale(1.035) translateY(-6px);
+    box-shadow: 0 12px 40px 0 #FFD70033, 0 1.5px 6px 0 #00000022;
+}
+
+.card video {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    background: #000;
+}
+
+.card h3 {
+    margin-top: 0.5rem;
+    font-size: 1.1rem;
+    color: var(--primary);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+form input, form textarea {
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    font-family: inherit;
+    resize: none;
+}
+
+form button {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+form button:hover {
+    background: #1e1e2f;
+    transform: translateY(-2px) scale(1.03);
+}
+
+#form-message {
+    margin-top: 1rem;
+    color: var(--accent);
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    background: var(--primary);
+    color: #fff;
+    margin-top: 2rem;
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+/* Theme toggle button */
+#theme-toggle {
+    position: fixed;
+    top: 1.5rem;
+    right: 2rem;
+    z-index: 100;
+    background: var(--card-bg);
+    color: var(--primary);
+    border: none;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    font-size: 1.5rem;
+    box-shadow: 0 2px 8px rgba(30,30,47,0.10);
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+#theme-toggle:hover {
+    background: var(--accent);
+    color: #fff;
+    transform: scale(1.1) rotate(20deg);
+}
+
+/* Dark theme variables */
+body.dark {
+    --primary: #111111;
+    --accent: #FFD700;
+    --bg: #181818;
+    --text: #FFD700;
+    --card-bg: #181818;
+    --shadow: 0 4px 24px rgba(0,0,0,0.45);
+    background: var(--bg);
+    color: var(--text);
+}
+body.dark header,
+body.dark footer {
+    background: var(--primary);
+    color: var(--accent);
+}
+body.dark .card,
+body.dark .about,
+body.dark .contact,
+body.dark .testimonials {
+    background: var(--card-bg);
+    color: var(--accent);
+    border: 1px solid #FFD70022;
+}
+body.dark .skills-list li {
+    background: #111111;
+    color: #FFD700;
+    border: 1px solid #FFD700;
+}
+body.dark #theme-toggle {
+    background: #181818;
+    color: #FFD700;
+    border: 1px solid #FFD700;
+}
+body.dark nav a {
+    color: #FFD700;
+}
+body.dark nav a:hover {
+    color: #fffbe6;
+}
+body.dark .hero {
+    background: linear-gradient(120deg, #FFD70022 0%, #111111 100%);
+    color: #FFD700;
+}
+body.dark .gallery .card {
+    border: 1px solid #FFD70033;
+}
+body.dark .testimonial-card {
+    background: #111111;
+    color: #FFD700;
+    border: 1px solid #FFD70033;
+}
+body.dark input,
+body.dark textarea {
+    background: #111111;
+    color: #FFD700;
+    border: 1px solid #FFD70055;
+}
+body.dark form button {
+    background: #FFD700;
+    color: #111111;
+}
+body.dark form button:hover {
+    background: #fffbe6;
+    color: #111111;
+}
+body.dark #form-message {
+    color: #FFD700;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* New slide-up animation */
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(60px) scale(0.95);}
+    to { opacity: 1; transform: translateY(0) scale(1);}
+}
+.slide-up {
+    opacity: 0;
+    transform: translateY(60px) scale(0.95);
+    transition: opacity 0.8s, transform 0.8s cubic-bezier(.77,0,.18,1);
+}
+.slide-up.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    animation: slideUp 0.8s cubic-bezier(.77,0,.18,1);
+}
+
+/* Staggered animation for gallery cards */
+.gallery .card {
+    opacity: 0;
+    transform: scale(0.9) translateY(40px);
+    transition: opacity 0.7s, transform 0.7s cubic-bezier(.77,0,.18,1);
+}
+.gallery .card.visible {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    animation: zoomIn 0.8s cubic-bezier(.77,0,.18,1);
+}
+@keyframes zoomIn {
+    from { opacity: 0; transform: scale(0.8);}
+    to { opacity: 1; transform: scale(1);}
+}
+
+/* Staggered animation for skills */
+.skills-list li {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    transition: opacity 0.7s, transform 0.7s cubic-bezier(.77,0,.18,1);
+}
+.skills-list li.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    animation: slideUp 0.7s cubic-bezier(.77,0,.18,1);
+}
+
+/* Staggered animation for testimonials */
+.testimonial-card {
+    opacity: 0;
+    transform: translateX(40px) scale(0.97);
+    transition: opacity 0.7s, transform 0.7s cubic-bezier(.77,0,.18,1);
+}
+.testimonial-card.visible {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    animation: fadeInRight 0.8s cubic-bezier(.77,0,.18,1);
+}
+@keyframes fadeInRight {
+    from { opacity: 0; transform: translateX(40px);}
+    to { opacity: 1; transform: translateX(0);}
+}
+
+/* Font animation for headings */
+@keyframes fontPop {
+    0% {
+        letter-spacing: -0.1em;
+        opacity: 0;
+        transform: scale(0.8);
+        color: var(--accent);
+    }
+    60% {
+        letter-spacing: 0.15em;
+        opacity: 1;
+        transform: scale(1.1);
+        color: #ffb3c6;
+    }
+    100% {
+        letter-spacing: 0.05em;
+        opacity: 1;
+        transform: scale(1);
+        color: inherit;
+    }
+}
+
+/* Animate h1, h2, h3 when visible */
+.fade-in.visible h1,
+.fade-in.visible h2,
+.fade-in.visible h3,
+.fade-in-left.visible h2,
+.fade-in-right.visible h2,
+.zoom-in.visible h3 {
+    animation: fontPop 1s cubic-bezier(.77,0,.18,1);
+}
+
+/* Optional: Animate paragraph text for extra effect */
+@keyframes textFadeIn {
+    0% { opacity: 0; transform: translateY(20px);}
+    100% { opacity: 1; transform: translateY(0);}
+}
+.fade-in.visible p,
+.fade-in-left.visible p,
+.fade-in-right.visible p {
+    animation: textFadeIn 1.2s cubic-bezier(.77,0,.18,1);
+}
+
+/* Apple-like smooth fade and parallax for sections */
+.section-apple {
+    opacity: 0;
+    transform: translateY(60px) scale(0.98);
+    transition: opacity 1.2s cubic-bezier(.77,0,.18,1), transform 1.2s cubic-bezier(.77,0,.18,1);
+    will-change: opacity, transform;
+}
+.section-apple.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .gallery {
+        flex-direction: column;
+        align-items: center;
+    }
+    section {
+        padding: 3rem 2vw;
+    }
+}
+
+@media (max-width: 600px) {
+    header, section {
+        padding: 1.5rem 4vw;
+    }
+    .hero h1 {
+        font-size: 2rem;
+    }
+    .card {
+        width: 100%;
+    }
+}
+
+/* Add this at the very end of your CSS file */
+
+/* Animated gradient background */
+body::before {
+    content: "";
+    position: fixed;
+    z-index: 0;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(120deg, #ff4c60 0%, #1e1e2f 100%);
+    background-size: 200% 200%;
+    animation: gradientMove 10s ease-in-out infinite;
+    opacity: 0.25;
+    pointer-events: none;
+}
+
+/* For dark mode, a different gradient */
+body.dark::before {
+    background: linear-gradient(120deg, #111111 0%, #FFD700 100%);
+    opacity: 0.13;
+}
+
+/* Modern animated floating golden circles background */
+body::after {
+    content: "";
+    position: fixed;
+    z-index: 0;
+    top: 0; left: 0; right: 0; bottom: 0;
+    pointer-events: none;
+    background: 
+        radial-gradient(circle at 20% 30%, #FFD70055 0, #FFD70022 40px, transparent 80px),
+        radial-gradient(circle at 80% 70%, #FFD70044 0, #FFD70011 50px, transparent 100px),
+        radial-gradient(circle at 60% 20%, #FFD70033 0, #FFD70011 30px, transparent 80px),
+        radial-gradient(circle at 40% 80%, #FFD70044 0, #FFD70011 60px, transparent 120px);
+    animation: floatCircles 16s linear infinite alternate;
+    opacity: 0.18;
+}
+
+body.dark::after {
+    background: 
+        radial-gradient(circle at 25% 35%, #FFD70099 0, #FFD70033 60px, transparent 120px),
+        radial-gradient(circle at 75% 75%, #FFD70066 0, #FFD70022 80px, transparent 160px),
+        radial-gradient(circle at 65% 25%, #FFD70044 0, #FFD70011 40px, transparent 100px),
+        radial-gradient(circle at 35% 85%, #FFD70066 0, #FFD70022 90px, transparent 180px);
+    animation: floatCircles 18s linear infinite alternate;
+    opacity: 0.22;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes floatCircles {
+    0% {
+        background-position:
+            20% 30%,
+            80% 70%,
+            60% 20%,
+            40% 80%;
+    }
+    100% {
+        background-position:
+            23% 33%,
+            77% 73%,
+            63% 23%,
+            37% 83%;
+    }
+}
+
+/* --- Enhanced Modern Animated Background with Floating Golden Circles and Moving Lines --- */
+
+/* Keep your existing gradient and circles... */
+
+/* Add animated diagonal lines for extra depth */
+body::before,
+body::after,
+body .bg-lines {
+    pointer-events: none;
+}
+
+/* Add this block at the end of your CSS file */
+.bg-lines {
+    position: fixed;
+    z-index: 0;
+    top: 0; left: 0; right: 0; bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.bg-line {
+    position: absolute;
+    width: 200vw;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #FFD70055 40%, #FFD700 60%, transparent 100%);
+    opacity: 0.12;
+    animation: moveLine 12s linear infinite;
+    pointer-events: none;
+}
+.bg-line:nth-child(1) {
+    top: 20%;
+    left: -50vw;
+    animation-delay: 0s;
+    transform: rotate(-8deg);
+}
+.bg-line:nth-child(2) {
+    top: 50%;
+    left: -50vw;
+    animation-delay: 4s;
+    transform: rotate(-4deg);
+}
+.bg-line:nth-child(3) {
+    top: 80%;
+    left: -50vw;
+    animation-delay: 8s;
+    transform: rotate(-12deg);
+}
+
+@keyframes moveLine {
+    0% { left: -50vw; }
+    100% { left: 0vw; }
+}
+
+/* For dark mode, make lines more golden and visible */
+body.dark .bg-line {
+    background: linear-gradient(90deg, transparent, #FFD70099 40%, #FFD700 60%, transparent 100%);
+    opacity: 0.18;
+}
+
+/* Social links styles */
+.social-links img {
+    width: 32px;
+    height: 32px;
+    margin-right: 16px;
+    transition: filter 0.3s;
+}
+
+/* Instagram brand color */
+.social-links img[alt="Instagram"] {
+    filter: invert(41%) sepia(97%) saturate(7493%) hue-rotate(316deg) brightness(1.05) contrast(1.05);
+}
+
+/* LinkedIn brand color */
+.social-links img[alt="LinkedIn"] {
+    filter: invert(34%) sepia(99%) saturate(749%) hue-rotate(175deg) brightness(0.97) contrast(1.05);
+}
+
+/* Facebook brand color */
+.social-links img[alt="Facebook"] {
+    filter: invert(27%) sepia(98%) saturate(748%) hue-rotate(186deg) brightness(0.95) contrast(1.05);
+}
+
+/* In dark mode, keep them gold */
+body.dark .social-links img {
+    filter: invert(60%) sepia(90%) saturate(500%) hue-rotate(10deg) brightness(1.1) !important;
+}
+
+/* Animated floating dots for extra modern effect */
+.floating-dot {
+    position: fixed;
+    z-index: 0;
+    border-radius: 50%;
+    opacity: 0.13;
+    pointer-events: none;
+    animation: floatDot 18s ease-in-out infinite alternate;
+    background: radial-gradient(circle, #FFD700 0%, #FFD70044 60%, transparent 100%);
+}
+.floating-dot.dot1 {
+    width: 80px; height: 80px;
+    top: 10%; left: 15%;
+    animation-delay: 0s;
+}
+.floating-dot.dot2 {
+    width: 60px; height: 60px;
+    top: 70%; left: 70%;
+    animation-delay: 6s;
+}
+.floating-dot.dot3 {
+    width: 100px; height: 100px;
+    top: 50%; left: 80%;
+    animation-delay: 12s;
+}
+@keyframes floatDot {
+    0%   { transform: translateY(0) scale(1);}
+    50%  { transform: translateY(-40px) scale(1.1);}
+    100% { transform: translateY(0) scale(1);}
+}
+
+/* Dark mode: make dots more golden and visible */
+body.dark .floating-dot {
+    opacity: 0.22;
+    background: radial-gradient(circle, #FFD700 0%, #FFD70099 60%, transparent 100%);
+}
